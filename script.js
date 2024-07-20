@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     const feedbackDiv = document.getElementById ('form-feedback');
 
-    function loaded () {
+    //function loaded () {
         form.addEventListener('submit', (event) => {
             event.preventDefault(); // Prevents the default form submission
             // Custom validation and submission logic here
@@ -12,8 +12,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
             var username = document.getElementById('username').value.trim();
             var email = document.getElementById('email').value.trim();
             var password = document.getElementById('password').value.trim();
+
+            var isValid = true;
+            var messages = ["messages", "push", "isValid"];
+
+
         });
-    }
+    //}
 
 });
 
