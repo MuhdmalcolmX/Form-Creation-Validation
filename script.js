@@ -16,6 +16,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
             var isValid = true;
             var messages = ["messages", "push", "isValid"];
 
+            if (username < 3) {
+                isValid = true
+            } else {
+                
+            }
+
 
         });
     //}
