@@ -75,10 +75,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
         if (isValid = false) {
             feedbackDiv.innerHTML = messages.join('<br>');
             feedbackDiv.style.color = "#dc3545";
+            feedbackDiv.style.display = "block";
             
         } else {
             feedbackDiv.textContent = 'Registration successful';
             feedbackDiv.style.color = "#28a745";
+            feedbackDiv.style.display = "block";
         }
   
         // If all validations pass, submit the form
