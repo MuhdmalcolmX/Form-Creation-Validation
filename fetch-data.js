@@ -1,6 +1,8 @@
 async function fetchUserData() {
     try {
       const apiUrl  = await fetch('https://jsonplaceholder.typicode.com/users');
+
+      const dataContainer = document.getElementById(apiUrl);
   
       if (!response.ok) {
         throw new Error('Network response was not ok');
