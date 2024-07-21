@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
   
         // Validate password
-        if (password < 8) {
+        if (password.length < 8) {
             isValid = false;
             feedbackDiv.textContent = messages[2];
           return;
