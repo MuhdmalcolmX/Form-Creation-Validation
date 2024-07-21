@@ -46,8 +46,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
         // Validate username
         if (username.length < 3) {
-            isValid
-            feedbackDiv.textContent = 'Username must be at least 3 characters long.';
+            isValid = false;
+            feedbackDiv.textContent = messages[0];
           return;
         } else {
             feedbackDiv.textContent = '';
@@ -55,7 +55,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
   
         // Validate email
         if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(email)) {
-            feedbackDiv.textContent = 'Please enter a valid email address.';
+            isValid = false;
+            feedbackDiv.textContent = messages[1];
           return;
         } else {
             feedbackDiv.textContent = '';
@@ -63,10 +64,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
   
         // Validate password
         if (password < 8) {
-            feedbackDiv.textContent = 'Password must be at least 8 characters long.';
+            isValid = false;
+            feedbackDiv.textContent = messages[2];
           return;
         } else {
             feedbackDiv.textContent = '';
+        }
+
+
+        if (isValid = false) {
+            feedbackDiv.innerHTML = messages.join('<br>');
+            feedbackDiv.style.color = "#dc3545";
+            
+        } else {
+            feedbackDiv.textContent = 'Registration successful';
+            feedbackDiv.style.color = "#28a745";
         }
   
         // If all validations pass, submit the form
