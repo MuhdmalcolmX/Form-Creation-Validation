@@ -1,18 +1,32 @@
-async function fetchUserData() {
-    try {
-      const apiUrl  = await fetch('https://jsonplaceholder.typicode.com/users');
+ // Step 1: Initialize the Async Function
+ async function fetchUserData() {
+    // Step 2: Define the API URL
+    const apiUrl = 'https://jsonplaceholder.typicode.com/users';
 
-      const dataContainer = document.getElementById(api-data);
-  
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-  
-      const data = await response.json(); 
-      console.log('Success:', data); 
+    // Step 3: Select the Data Container Element
+    const dataContainer = document.getElementById('api-data');
+
+    // Step 4: Fetch Data Using try-catch
+    try {
+        const response = await fetch(apiUrl);
+        const users = await response.json();
+
+        // Step 5: Clear the Loading Message
+        dataContainer.innerHTML = '';
+
+        // Step 6: Create and Append User List
+        const userList = document.createElement('ul');
+        users.forEach(user => {
+            const listItem = document.createElement('li');
+            listItem.textContent = user.name;
+            userList.appendChild(listItem);
+        });
+        dataContainer.appendChild(userList);
     } catch (error) {
-      console.error('Error:', error);
+        // Step 7: Error Handling
+        dataContainer.innerHTML = 'Failed to load user data.';
     }
-  }
-  
-  fetchUserData();
+}
+
+// Step 8: Invoke fetchUserData on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', fetchUserData);
